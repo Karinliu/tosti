@@ -1,0 +1,49 @@
+/* width */
+::-webkit-scrollbar {
+    width: 0.5em;
+    height: 0.5em;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #FAFBFC;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #dcdcdc;
+    border-radius: 1em;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #7E7E7E;
+    transition: 0.5s;
+}
+
+.bread {
+    width: 12em;
+    height: 15em;
+    background-image: url(../bread.svg);
+    background-repeat: no-repeat;
+    background-size: 1200%;
+    margin: 0 auto;
+}
+
+.paper {
+    padding-left: 3em;
+    margin-top: 2em;
+    height: 80vh;
+    background-color: #fff;
+    background: linear-gradient(90deg, transparent 39px, #abced4 39px, #abced4 41px, transparent 41px), linear-gradient(#eee .1em, transparent .1em);
+    background-size: 100% 1.5em;
+}
+
+.paper-list {
+    padding-left: 3em;
+    margin-top: 2em;
+    height: 40vh;
+    background-color: #fff;
+    background: linear-gradient(90deg, transparent 39px, #abced4 39px, #abced4 41px, transparent 41px), linear-gradient(#eee .1em, transparent .1em);
+    background-size: 100% 1.5em;
+}
