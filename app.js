@@ -16,8 +16,6 @@ const app = express()
     .get('/start', start)
     .post("/detail", detail)
 
-const port = 4000
-
 function index(req, res) {
     res.render('pages/index.ejs');
 }
@@ -72,4 +70,4 @@ function detail(req, res) {
     });
 }
 
-app.listen(4000, () => console.log(`Example app listening on port ${port}!`))
+app.listen(process.env.PORT || 4000)
