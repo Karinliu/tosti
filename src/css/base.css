@@ -109,6 +109,7 @@ form label p {
     cursor: pointer;
     border-radius: 8px;
     margin-right: 32px;
+    width: 300px;
 }
 
 form img {
