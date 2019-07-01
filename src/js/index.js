@@ -1,72 +1,37 @@
 (function() {
     // Check if querySelector is supported
-    if (!document.addEventListener) {
-        console.log("addEventlistener is not supported")
-
-        var btn = document.getElementById("node-btn");
-        var btnJs = document.getElementById("js-btn");
-        btnJs.className += " hidden"
-        var classes = btn.className.split(" ");
-        var i = classes.indexOf("hidden");
-        if (i >= 0) {
-            btn.className = "form-btn node-btn "
-        } else {
-            btn.classname = "form-btn node-btn hidden"
-        }
+    if ('addEventlistener' in document) {
+        showJsBtn()
     } else {
-        console.log('addEventlistener is supported')
-        var btn = document.getElementById("node-btn");
-        btn.className += " hidden"
-        var btnJs = document.getElementById("js-btn");
-        var classes = btnJs.className.split(" ");
-        var i = classes.indexOf("hidden");
-        if (i >= 0) {
-            btnJs.className = "form-btn js-btn "
-        } else {
-            btnJs.classname = "form-btn js-btn hidden"
-        }
+        showJsBtn()
 
+        var btnJs = document.getElementById("js-btn");
         btnJs.addEventListener("click", copy);
     }
 
     var fieldset = checkQuerySelectorAll("fieldset");
     for (var i = 0; i < fieldset.length; i++) {
         var inputs = fieldset[i].getElementsByTagName("input");
+
         for (var c = 0; c < inputs.length; c++) {
             // if addEventlistener is supported
-            if (document.addEventListener) {
+            if ('addEventlistener' in document) {
                 console.log('addevent true')
                 inputs[c].addEventListener("keydown", inputChecked)
             } else {
-                var btn = document.getElementById("node-btn");
-                var btnJs = document.getElementById("js-btn");
-                btnJs.className += " hidden"
-                var classes = btn.className.split(" ");
-                var i = classes.indexOf("hidden");
-                if (i >= 0) {
-                    btn.className = "form-btn node-btn "
-                } else {
-                    btn.classname = "form-btn node-btn hidden"
-                }
+                showNodeBtn()
             }
         }
         var fieldinputs = fieldset[i].getElementsByTagName("label");
         for (var b = 0; b < fieldinputs.length; b++) {
-            if (document.addEventListener) {
+
+            // if addEventlistener is supported
+            if ('addEventlistener' in document) {
                 console.log('addevent true')
                 fieldinputs[b].addEventListener("click", handleClick)
             } else {
                 console.log('do nothing')
-                var btn = document.getElementById("node-btn");
-                var btnJs = document.getElementById("js-btn");
-                btnJs.className += " hidden"
-                var classes = btn.className.split(" ");
-                var i = classes.indexOf("hidden");
-                if (i >= 0) {
-                    btn.className = "form-btn node-btn "
-                } else {
-                    btn.classname = "form-btn node-btn hidden"
-                }
+                showNodeBtn()
             }
         }
     }
@@ -107,6 +72,7 @@
         var foo = element;
         var list = document.getElementById("list");
         list.className = "list paper paper-list "
+
         document.getElementById("alltext").value += " " + foo.innerText.replace(/[\n\r]+|[\s]{2,}/g, ' ') || " " + foo.textContent.replace(/[\n\r]+|[\s]{2,}/g, ' ')
     }
 
@@ -130,6 +96,33 @@
             return document.querySelectorAll(element);
         } else {
             return document.getElementsByTagName(element);
+        }
+    }
+
+    function showNodeBtn() {
+        var btn = document.getElementById("node-btn");
+        var btnJs = document.getElementById("js-btn");
+        btnJs.className += " hidden"
+        var classes = btn.className.split(" ");
+        var i = classes.indexOf("hidden");
+        if (i >= 0) {
+            btn.className = "form-btn node-btn "
+        } else {
+            btn.classname = "form-btn node-btn hidden"
+        }
+    }
+
+    function showJsBtn() {
+        console.log('addEventlistener is supported')
+        var btn = document.getElementById("node-btn");
+        btn.className += " hidden"
+        var btnJs = document.getElementById("js-btn");
+        var classes = btnJs.className.split(" ");
+        var i = classes.indexOf("hidden");
+        if (i >= 0) {
+            btnJs.className = "form-btn js-btn "
+        } else {
+            btnJs.classname = "form-btn js-btn hidden"
         }
     }
 
